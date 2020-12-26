@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 引入 cdn CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">  
+
+  <style> 
+  
+    body {font-family: 'Noto Sans TC', sans-serif;}
+
+    img {max-width: 300px; width: expression(this.width>600? "600px" : this.width); overflow: hidden;}
+
+    @media (max-width: 991px) {
+      .navbar-header {
+          float: none;
+      }
+      .navbar-toggle {
+          display: block;
+      }
+
+      .navbar-collapse {
+          border-top: 1px solid transparent;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      }
+      .navbar-collapse.collapse {
+          display: none!important;
+      }
+      .navbar-nav>li {
+          float: none;
+      }
+      .navbar-nav>li>a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      .navbar-text {
+          float: none;
+          margin: 15px 0;
+      }
+      /* since 3.1.0 */
+      .navbar-collapse.collapse.in { 
+          display: block!important;
+      }
+      .collapsing {
+          overflow: hidden!important;
+      }
+    }  
+  </style>
+
+  <title>Recogniton</title>
+
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <h1>Recognition 故宮</h1>
+  </div>
+
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">「Recognition 故宮」介紹</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="implement.html">實作</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="result.html">配對成果</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="future.html">檢討與未來發展</a>
+          </li>
+        </ul>
+      
+  
+  </nav>
+
+
+  
+  <main>
+    <!-- 可供更改的部分 -->
+    
+
+<div class="container">
+  
+  <br>
+
+  <h2><b>「Recognition 故宮」介紹</b></h2><br>
+  
+  <h5><b>動機</b></h5><br>
+  
+  <p>2016年，英國TATE美術館舉辦了以人工智慧為主要策展人的展覽<a href="http://recognition.tate.org.uk/" target="_blank">「Recognition」</a>，
+  策展團隊以「物體識別」、「面部識別」、「構圖識別」、「文本識別」等四種維度，建立時事文章圖片與館藏藝術品的連結，透過深度學習挖掘兩者間可能不被人發覺的關聯。
+  基於這個先例，或許能以臺灣故宮博物院豐富的館藏，進行一個故宮版Recognition的策展也說不定。因此本專題決定試著先從NLP領域切入，透過文本相似度，製作一個類似Recognition的小模型。<br>
+
+  </p><br>
+
+  <h5><b>目的</b></h5><br>
+
+  <p>本專題從NLP層面實作，尋找故宮館藏與網路時事文章的關聯，讓民眾得以從網路時事文章中認識故宮館藏，從日常生活中貼近這些看似難以親近的文物，促進民眾對於故宮館藏文物的認識。<br>
+
+  </p>
+
+</div>
+
+
+  </main>
+  
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <!-- 可供更改的部分 -->
+    
+  </body>

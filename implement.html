@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 引入 cdn CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">  
+
+  <style> 
+  
+    body {font-family: 'Noto Sans TC', sans-serif;}
+
+    img {max-width: 300px; width: expression(this.width>600? "600px" : this.width); overflow: hidden;}
+
+    @media (max-width: 991px) {
+      .navbar-header {
+          float: none;
+      }
+      .navbar-toggle {
+          display: block;
+      }
+
+      .navbar-collapse {
+          border-top: 1px solid transparent;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      }
+      .navbar-collapse.collapse {
+          display: none!important;
+      }
+      .navbar-nav>li {
+          float: none;
+      }
+      .navbar-nav>li>a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      .navbar-text {
+          float: none;
+          margin: 15px 0;
+      }
+      /* since 3.1.0 */
+      .navbar-collapse.collapse.in { 
+          display: block!important;
+      }
+      .collapsing {
+          overflow: hidden!important;
+      }
+    }  
+  </style>
+
+  <title>Recogniton</title>
+
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <h1>Recognition 故宮</h1>
+  </div>
+
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">「Recognition 故宮」介紹</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="implement.html">實作</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="result.html">配對成果</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="future.html">檢討與未來發展</a>
+          </li>
+        </ul>
+      
+  
+  </nav>
+
+
+  
+  <main>
+    <!-- 可供更改的部分 -->
+    
+
+<div class="container">
+  
+  <br>
+
+  <h2><b>實作</b></h2><br>
+  
+  <h5><b>模型圖</b></h5><br>
+
+  <img src="static/model.jpg" class="img-fluid" alt="Responsive image">
+  
+  <br>
+
+  <h5><b>收集語料與斷詞處理</b></h5><br>
+
+  <p>使用BeautifulSoup抓取並解析網頁資料。在本專題中，故宮館藏資料來自「<a href="https://antiquities.npm.gov.tw/" target="_blank">器物典藏資料檢索系統</a>」以及
+  「<a href="https://painting.npm.gov.tw/" target="_blank">書畫典藏資料檢索系統</a>」，而時事文章則來自「<a href="https://www.thenewslens.com/" target="_blank">關鍵評論網</a>」以及
+  「<a href="https://everylittled.com/" target="_blank">every little d</a>」。收集完語料後，接著使用Jieba進行中文斷詞處理。
+  </p>
+
+  <h5><b>Word Embedding － 使用Word2Vec</b></h5><br>
+
+  <p>使用Word2Vec作為Word Embedding之模型，以「故宮館藏」、「時事文章」、「維基百科」作為語料進行訓練。</p><br>
+
+  <h5><b>Word Extraction － 使用TF-IDF</b></h5><br>
+
+  <p>在本專題中，使用了Jieba內基於TF-IDF的關鍵詞抽取，為每一個作為輸入的「故宮館藏之敘述」以及「網路時事文章段落」進行關鍵詞抽取，並計算這些關鍵詞的平均詞向量，以便後續處理。
+  </p><br>
+
+  <h5><b>Cosine Similarity 計算</b></h5><br>
+
+  <p>為每一筆「故宮館藏文章之敘述」與「網路時事文章段落」之平均詞向量計算Cosine Similarity，得出故宮館藏與時事文章的配對。
+  </p><br>
+
+  <h5><b>Accuracy Evaluate</b></h5><br>
+
+  <p>引用<a href="https://hackmd.io/@jungyitsai/ByYtSv4VP" target="_blank">Unsupervise Similarity Accuracy Evaluation</a>為得出的配對進行算分，並以百分制為單位。
+  </p><br>
+
+  <h5><b>人工驗證配對結果</b></h5><br>
+
+  <p>將分數五十分以上的配對篩選出來，進行進階的人工篩選，找出文物敘述與文章彼此間，同質性、相似性高且頻繁出現的詞彙，評估文章與文物的詞彙，是否能建立一定程度的關聯性，足夠直觀且易於理解。
+  </p><br>
+
+</div>
+
+
+  </main>
+  
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <!-- 可供更改的部分 -->
+    
+  </body>

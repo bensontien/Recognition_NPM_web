@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 引入 cdn CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">  
+
+  <style> 
+  
+    body {font-family: 'Noto Sans TC', sans-serif;}
+
+    img {max-width: 300px; width: expression(this.width>600? "600px" : this.width); overflow: hidden;}
+
+    @media (max-width: 991px) {
+      .navbar-header {
+          float: none;
+      }
+      .navbar-toggle {
+          display: block;
+      }
+
+      .navbar-collapse {
+          border-top: 1px solid transparent;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      }
+      .navbar-collapse.collapse {
+          display: none!important;
+      }
+      .navbar-nav>li {
+          float: none;
+      }
+      .navbar-nav>li>a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      .navbar-text {
+          float: none;
+          margin: 15px 0;
+      }
+      /* since 3.1.0 */
+      .navbar-collapse.collapse.in { 
+          display: block!important;
+      }
+      .collapsing {
+          overflow: hidden!important;
+      }
+    }  
+  </style>
+
+  <title>Recogniton</title>
+
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <h1>Recognition 故宮</h1>
+  </div>
+
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">「Recognition 故宮」介紹</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="implement.html">實作</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="result.html">配對成果</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="future.html">檢討與未來發展</a>
+          </li>
+        </ul>
+      
+  
+  </nav>
+
+
+  
+  <main>
+    <!-- 可供更改的部分 -->
+    
+
+<div class="container">
+  
+  <br>
+
+  <h2><b>檢討與可能的改善方向</b></h2><br>
+
+  <h5><b>（一）資料的品質</b></h5><br>
+
+  <p>在配對的資料結果中，我們明顯發現到在瓷器類文物中，有數筆資料配對到了一筆關於酒的<a href="https://everylittled.com/article/131839">文章</a>，這些瓷器包含了
+  「哥釉八楞瓶」、「白瓷雙耳瓶」、「仿汝釉獸耳壺」、「仿汝釉青瓷觚」......等館藏文物，確實以瓷器來說或許和酒是有其關聯性的，但這些瓷器實際的功能不一定和盛酒有關，比如
+  「哥釉八楞瓶」這筆資料中，說明了功能為「盛裝器」，雖然提到了這個字眼，但在敘述中並沒有介紹到「盛裝的是什麼事物」，像這樣的配對在人工驗證時就存在了一個模糊的空間。我們如果進一步
+  細看這些館藏文物敘述的話，可以發現到除了外觀的描述以外，就沒有更進階的描述了，比如說這個器物產製的歷史背景、這個器物實際上的用途可能是什麼.....等等這類敘述泰半是沒有出現的。
+  </p><br>
+
+  <p>不過如果是相對知名的館藏文物，那麼它的Meta Data是相對充足的，換言之能夠作為配對的關鍵字是多的，可以發現到這些文物在配對上都有不錯的結果。在進行本專題時，曾一度想透過機器學習將不適合的資料篩掉，
+  然而幾經深思熟慮後，我們的目的是在於推廣故宮的文物，如果今天只有較為知名的文物是適合的資料，那麼推廣的效果就有限。因此不管是人工篩選還是機器篩選不適合的資料，我們還是得先回歸本質，意即資料本身的品質是否適合本專題，
+  我們得先思考想推廣什麼館藏文物，並且針對該文物進行足夠的資料補述後，再輸入模型進行配對，這樣才能有效率地得出較好的結果。
+  </p><br>
+
+  <h5><b>（二）演算法的改善</b></h5><br>
+
+
+
+  
+
+  </p>
+
+</div>
+
+
+  </main>
+  
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <!-- 可供更改的部分 -->
+    
+  </body>
