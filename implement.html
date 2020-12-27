@@ -94,39 +94,39 @@
 
   <h2><b>實作</b></h2><br>
   
-  <h5><b>模型圖</b></h5><br>
+  <h4><b>模型圖</b></h4><br>
 
   <img src="static/Model.jpg" class="img-fluid" alt="Responsive image">
   
   <br>
 
-  <h5><b>收集語料與斷詞處理</b></h5><br>
+  <h4><b>收集語料與斷詞處理</b></h4><br>
 
-  <p>使用BeautifulSoup抓取並解析網頁資料。在本專題中，故宮館藏資料來自「<a href="https://antiquities.npm.gov.tw/" target="_blank">器物典藏資料檢索系統</a>」以及
+  <p>使用BeautifulSoup抓取並解析網頁資料。在本專題中，故宮館藏資料來自「<a href="https://theme.npm.edu.tw/opendata/index.aspx" target="_blank">故宮Open Data</a>」、「<a href="https://antiquities.npm.gov.tw/" target="_blank">器物典藏資料檢索系統</a>」以及
   「<a href="https://painting.npm.gov.tw/" target="_blank">書畫典藏資料檢索系統</a>」，而時事文章則來自「<a href="https://www.thenewslens.com/" target="_blank">關鍵評論網</a>」以及
   「<a href="https://everylittled.com/" target="_blank">every little d</a>」。收集完語料後，接著使用Jieba進行中文斷詞處理。
-  </p>
+  </p><br>
 
-  <h5><b>Word Embedding － 使用Word2Vec</b></h5><br>
+  <h4><b>Word Embedding － 使用Word2Vec</b></h4><br>
 
   <p>使用Word2Vec作為Word Embedding之模型，以「故宮館藏」、「時事文章」、「維基百科」作為語料進行訓練。</p><br>
 
-  <h5><b>Word Extraction － 使用TF-IDF</b></h5><br>
+  <h4><b>Word Extraction － 使用TF-IDF</b></h4><br>
 
   <p>在本專題中，使用了Jieba內基於TF-IDF的關鍵詞抽取，為每一個作為輸入的「故宮館藏之敘述」以及「網路時事文章段落」進行關鍵詞抽取，並計算這些關鍵詞的平均詞向量，以便後續處理。
   </p><br>
 
-  <h5><b>Cosine Similarity 計算</b></h5><br>
+  <h4><b>Cosine Similarity 計算</b></h4><br>
 
   <p>為每一筆「故宮館藏文章之敘述」與「網路時事文章段落」之平均詞向量計算Cosine Similarity，得出故宮館藏與時事文章的配對。
   </p><br>
 
-  <h5><b>Accuracy Evaluate</b></h5><br>
+  <h4><b>Accuracy Evaluate</b></h4><br>
 
   <p>引用<a href="https://hackmd.io/@jungyitsai/ByYtSv4VP" target="_blank">Unsupervise Similarity Accuracy Evaluation</a>為得出的配對進行算分，並以百分制為單位。
   </p><br>
 
-  <h5><b>人工驗證配對結果</b></h5><br>
+  <h4><b>人工驗證配對結果</b></h4><br>
 
   <p>將分數五十分以上的配對篩選出來，進行進階的人工篩選，找出文物敘述與文章彼此間，同質性、相似性高且頻繁出現的詞彙，評估文章與文物的詞彙，是否能建立一定程度的關聯性，足夠直觀且易於理解。
   </p><br>
